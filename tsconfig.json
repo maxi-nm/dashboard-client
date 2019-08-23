@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    // Target latest version of ECMAScript.
+    "target": "esnext",
+    // path to rootdir directory
+    "rootDir": "./",
+    // path to output directory
+    "outDir": "./dist/",
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    // use typescript to transpile jsx to js
+    "jsx": "react",
+    // Don't emit; allow Babel to transform files.
+    "noEmit": false,
+    //This allows source maps to be output alongside Javascript.
+    //What this allows us to do is halt execution at run time in the event we wish to debug Javascript being output, in the form of break points in the source map files.
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "traceResolution": false,
+    "module": "esnext",
+    "lib": ["es6", "es7", "dom"],
+    "removeComments": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": ".",
+    "checkJs": false,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+    "strict": true,
+    "alwaysStrict": true,
+    // enable strict null checks as a best practice
+    "strictNullChecks": false,
+    "downlevelIteration": true,
+    "paths": {
+      "components/*": ["./src/components/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "dist",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}

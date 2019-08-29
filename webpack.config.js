@@ -10,7 +10,7 @@ const SRC_DIR = __dirname + '/src';
 const DIST_DIR = __dirname + '/dist';
 
 module.exports = {
-  entry: [SRC_DIR + '/index.tsx'],
+  entry: [SRC_DIR + '/index.jsx'],
   output: {
     path: DIST_DIR,
     publicPath: '/',
@@ -20,7 +20,7 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
 
   module: {
@@ -41,14 +41,23 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
+              // This enables local scoped CSS based in CSS Modules spec
               modules: true,
               url: false,
-              sourceMap: true,
-              importLoaders: 1,
-              localIdentName: '[local]___[hash:base64:5]',
+              sourceMap: process.env.NODE_ENV !== 'production',
+              modules: {
+                // generates a unique name for each class (e.g. app__app___2x3cr)
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
             },
           },
-          { loader: 'sass-loader', options: { sourceMap: true } },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
+          },
         ],
       },
       {
@@ -68,8 +77,9 @@ module.exports = {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=100000',
       },
+
       {
-        test: /\.tsx?$/,
+        test: [/\.jsx?$/, /\.tsx?$/],
         exclude: /node_modules/,
         loader: 'awesome-typescript-loader',
       },

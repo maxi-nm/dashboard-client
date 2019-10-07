@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { Component } from 'react';
 import styles from './LoginForm.scss';
 
@@ -50,7 +51,7 @@ export default class LoginForm extends Component {
             </div>
             <div className={styles.card_footer}>
               <div className={styles.links}>
-                Don't have an account?<a href="#">Sign Up</a>
+                Don &apos;t have an account ? <a href="#"> Sign Up </a>
               </div>
               <div className="d-flex justify-content-center">
                 <a href="#">Forgot your password?</a>

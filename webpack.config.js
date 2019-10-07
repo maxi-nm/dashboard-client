@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-dupe-keys */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
-const path = require('path');
 
 const devMode = process.env.NODE_ENV !== 'production';
 const SRC_DIR = __dirname + '/src';
-const DIST_DIR = __dirname + '/dist';
+const DIST_DIR = __dirname + '/build';
 
 module.exports = {
   entry: [SRC_DIR + '/index.jsx'],
